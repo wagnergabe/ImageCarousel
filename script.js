@@ -1,6 +1,6 @@
 const imgs = document.getElementById("imgs");
-const leftBtn = document.querySelector('left');
-const rightBtn = document.querySelector('right');
+const leftBtn = document.getElementById('left');
+const rightBtn = document.getElementById ('right');
 
 const img = document.querySelectorAll('#imgs img');
 
@@ -21,3 +21,19 @@ function changeImage() {
     }
     imgs.style.transform = `translateX(${-index * 500}px)`
 }
+
+function resetInverval() {
+    clearInterval(interval)
+    interval = setInterval(run, 2000)
+}
+
+rightBtn.addEventListener('click', () => {
+    index++
+    changeImage();
+    resetInverval()
+})
+leftBtn.addEventListener('click', () => {
+    index--
+    changeImage();
+    resetInverval()
+})
